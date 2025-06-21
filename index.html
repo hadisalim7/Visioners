@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Visioners.com</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #ffffff;
+      --secondary: #e0e0e0;
+      --accent: #ff3d00;
+      --dark: #121212;
+      --darker: #000000;
+      --light: #f5f5f5;
+      --gray: #b0b0b0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--primary);
+      background-color: var(--dark);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* ✅ Updated Hero Section */
+    .learnmore-section {
+      height: 100vh;
+      background-image: url('images/front.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #121212;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--primary);
+    }
+
+    .learnmore-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+
+    .learnmore-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      padding: 2rem;
+    }
+
+    .learnmore-section h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .learnmore-section .tagline {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background-color: var(--accent);
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      color: var(--dark);
+      font-weight: 600;
+      transition: 0.3s ease all;
+      box-shadow: 0 4px 12px rgba(255, 61, 0, 0.3);
+    }
+
+    .cta-btn:hover {
+      background-color: var(--primary);
+      color: var(--dark);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255, 61, 0, 0.5);
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: auto;
+      padding: 0 1rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      text-align: center;
+      color: var(--primary);
+      margin: 4rem 0 2rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      height: 4px;
+      width: 80px;
+      background-color: var(--accent);
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+
+    .features-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .feature-card {
+      background-color: var(--darker);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .feature-desc {
+      color: var(--gray);
+      font-size: 1rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin-bottom: 4rem;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 10px;
+      background-color: #121212;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 240px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      max-height: 240px;
+      object-fit: contain;
+      transition: all 0.4s ease;
+      filter: brightness(0.9);
+      border-radius: 10px;
+    }
+
+    .gallery-item:hover img {
+      filter: brightness(1);
+    }
+
+    footer {
+      background: var(--darker);
+      color: var(--gray);
+      padding: 3rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--secondary);
+    }
+
+    footer .footer-links {
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-link {
+      color: var(--gray);
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .learnmore-section h1 {
+        font-size: 2.2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .learnmore-section h1 {
+        font-size: 1.7rem;
+      }
+
+      .learnmore-section .tagline {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Hero Section with Full Scanner Image -->
+  <section class="learnmore-section">
+    <div class="learnmore-content">
+      <h1>Scanner Integrated Braille Printer</h1>
+      <p class="tagline">Experience unmatched precision and performance in printing</p>
+      <a href="#features" class="cta-btn">Discover Features</a>
+    </div>
+  </section>
+
+  <!-- ✅ Features Section -->
+  <section id="features" class="container">
+    <h2 class="section-title">Key Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📄 </div>
+        <h3 class="feature-title">Scan & Print in Braille</h3>
+        <p class="feature-desc">Just place a printed document on the scanner — the system reads the text and instantly prints it in Braille. No extra steps or devices needed.
+</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💡</div>
+        <h3 class="feature-title">No Computer or Internet Needed
+</h3>
+        <p class="feature-desc">This is a fully standalone device. It works without needing a computer or internet — ideal for schools and remote institutions.
+</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧱 </div>
+        <h3 class="feature-title">Removable Braille Slate
+</h3>
+        <p class="feature-desc">Comes with a flexible Braille slate system that can be detached or adjusted for different paper sizes and printing formats.
+
+</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔋 </div>
+        <h3 class="feature-title">Energy Efficient
+</h3>
+        <p class="feature-desc">Runs on low power, making it suitable for rural or low-resource areas. Energy-saving design helps reduce electricity costs.
+</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌐 </div>
+        <h3 class="feature-title">Multilingual Braille Support
+</h3>
+        <p class="feature-desc">Supports printing Braille in multiple languages like English, Hindi, and regional languages helping more students access learning.
+</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛠 </div>
+        <h3 class="feature-title">Easy Maintenance Design
+</h3>
+        <p class="feature-desc">Designed with simplicity in mind. Easy to open, clean, and manage, even by non-technical staff in schools and institutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Gallery Section -->
+  <section class="container">
+    <h2 class="section-title">In Action</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/inbox1.jpg" alt="Braille printer sample 1">
+      </div>
+      <div class="gallery-item">
+        <img src="images/inbox2.jpg" alt="Braille printer sample 2">
+      </div>
+      <div class="gallery-item">
+        <img src="images/printer.jpg" alt="Braille printer sample 3">
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#support" class="footer-link">Help Center</a>
+      <a href="#warranty" class="footer-link">Product Warranty</a>
+      <a href="#contact" class="footer-link">Contact Us</a>
+      <a href="#privacy" class="footer-link">Privacy Policy</a>
+    </div>
+    <div>&copy; 2025 Visioners Inc. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
